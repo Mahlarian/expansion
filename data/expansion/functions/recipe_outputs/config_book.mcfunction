@@ -1,0 +1,5 @@
+execute at @e[type=item,nbt={Item:{id:"minecraft:crafting_table",Count:1b}},distance=..1,limit=1,sort=nearest] run particle minecraft:end_rod ~ ~ ~ 1 0 1 0.5 100
+execute at @e[type=item,nbt={Item:{id:"minecraft:crafting_table",Count:1b}},distance=..1,limit=1,sort=nearest] run playsound minecraft:entity.enderman.teleport master @a ~ ~ ~ 1000 0.8
+execute at @e[type=item,nbt={Item:{id:"minecraft:crafting_table",Count:1b}},distance=..1,limit=1,sort=nearest] run summon item ~ ~ ~ {Item:{id:"minecraft:written_book",Count:1b,tag:{display:{Name:'{"text":"gay","color":"black"}'},output_result:1b,title:"",author:""}}}
+kill @e[type=item,nbt={Item:{id:"minecraft:book",Count:1b}},distance=..1,limit=1,sort=nearest]
+kill @e[type=item,nbt={Item:{id:"minecraft:crafting_table",Count:1b}},distance=..1,limit=1,sort=nearest]
