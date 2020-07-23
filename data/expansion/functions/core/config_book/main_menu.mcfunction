@@ -1,2 +1,3 @@
+function expansion:core/config_book/clear_hotbar
 replaceitem entity @a[scores={exp_config_op=1..}] hotbar.0 red_stained_glass_pane{display:{Name:'{"text":"Difficulty","color":"red","bold":true,"italic":true}',Lore:['{"text":"Dropping this item will open the difficulty menu","color":"white"}']}} 1
 replaceitem entity @a[scores={exp_config_op=1..}] hotbar.8 barrier{display:{Name:'{"text":"Exit Config","color":"red","bold":true}',Lore:['{"text":"Dropping this item will exit the config menu and return the config book back to you","color":"white","bold":false,"italic":false}']}} 1
