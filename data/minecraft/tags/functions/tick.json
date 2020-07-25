@@ -1,7 +1,6 @@
 {
 	"replace": "false",
 	"values": [
-		"expansion:core/craft_detector",
-		"expansion:core/config_book/drop_check"
+		"expansion:core/tick"
 	]
 }
