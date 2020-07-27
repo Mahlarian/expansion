@@ -34,4 +34,4 @@ execute if score cosmetic_start exp_timer matches 2 run title @a times 0 21 40
 execute if score cosmetic_start exp_timer matches 1..11 run scoreboard players remove cosmetic_start exp_timer 1
 execute if score cosmetic_start exp_timer matches 1 run schedule clear expansion:core/gameplay/sequences/cosmetic_start
 execute if score cosmetic_start exp_timer matches 1 run say Script complete
-execute if score cosmetic_start exp_timer matches 1 run scoreboard players reset cosmetic_start exp_timer
+execute if score cosmetic_start exp_timer matches 1 run scoreboard players set cosmetic_start exp_timer 0

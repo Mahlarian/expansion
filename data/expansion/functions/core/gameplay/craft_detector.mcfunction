@@ -1,2 +1,2 @@
-execute as @e[type=item,nbt={Item:{id:"minecraft:crafting_table",Count:1b}},limit=1,sort=nearest] at @s as @e[type=item,nbt={Item:{id:"minecraft:book",Count:1b}},distance=..1,limit=1,sort=nearest] run function expansion:recipe_outputs/config_book
+execute as @e[type=item,nbt={Item:{id:"minecraft:iron_ingot",Count:8b}},limit=1,sort=nearest] at @s as @e[type=item,nbt={Item:{id:"minecraft:coal",Count:1b}},distance=..1,limit=1,sort=nearest] at @s as @e[type=item,nbt={Item:{id:"minecraft:oak_planks",Count:2b}},distance=..1,limit=1,sort=nearest] run function expansion:recipe_outputs/iron_core
 schedule function expansion:core/gameplay/craft_detector 10t
