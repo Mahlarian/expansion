@@ -1,0 +1,2 @@
+kill @e[type=item,nbt={Item:{id:"minecraft:barrier",Count:1b,tag:{display:{Name:'{"text":"Return to previous menu","color":"red","bold":true,"italic":true}',Lore:['{"text":"Dropping this item will return back to the Modifiers menu","color":"white","italic":false}']}}}}]
+function expansion:core/config_book/settings/game_modifiers/setup
