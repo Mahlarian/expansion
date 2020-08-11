@@ -1,3 +1,34 @@
+# this handles scheduling the loops
 schedule clear expansion:core/gameplay/config_crafter
 schedule clear expansion:core/gameplay/craft_detector
 schedule function expansion:core/gameplay/craft_detector 10t
+# this handles spawnref
+# this part specifically handles worldspawn
+execute if score spawn_ref exp_data matches 1 run gamerule doImmediateRespawn true
+execute if score spawn_ref exp_data matches 1 run gamerule keepInventory true
+execute if score spawn_ref exp_data matches 1 run gamerule showDeathMessages false
+execute if score spawn_ref exp_data matches 1 run kill @a
+# GET BONKED IDIOT
+execute if score spawn_ref exp_data matches 1 run gamerule doImmediateRespawn false
+execute if score spawn_ref exp_data matches 1 run gamerule keepInventory false
+execute if score spawn_ref exp_data matches 1 run gamerule showDeathMessages true
+execute if score spawn_ref exp_data matches 1 at @a[limit=1,sort=random] run summon area_effect_cloud ~ ~ ~ {Duration:2147483647,Tags:["border_marker"]}
+# this part specifically handles 0,0
+execute if score spawn_ref exp_data matches 2 run spreadplayers 0 0 0 1 true @a
+# creates the border
+execute as @e[limit=1,tag=border_marker,type=area_effect_cloud] at @s run worldborder center ~ ~
+execute unless entity @e[tag=border_marker,type=area_effect_cloud] run worldborder center 0 0
+worldborder warning distance 8
+worldborder warning time 3
+worldborder set 64 0
+# bossbar handling
+bossbar add expansion:timer {"text":"placeholder"}
+# starts gameloop
+execute if score grace_period exp_data matches 1 run scoreboard players set grace_m exp_timer 10
+execute if score grace_period exp_data matches 1 run scoreboard players set grace_bar exp_timer 600
+execute if score grace_period exp_data matches 1 run bossbar set expansion:timer players @a
+execute if score grace_period exp_data matches 1 run bossbar set expansion:timer max 600
+execute if score grace_period exp_data matches 1 run bossbar set expansion:timer color green
+execute if score grace_period exp_data matches 1 run scoreboard players set grace_s exp_timer 0
+execute if score grace_period exp_data matches 1 run function expansion:core/gameplay/grace_timer
+execute if score grace_period exp_data matches 0 run function expansion:core/gameplay/timer

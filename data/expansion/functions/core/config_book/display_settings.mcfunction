@@ -9,7 +9,8 @@ execute unless score difficulty exp_data matches 1..5 run tellraw @s {"text":"- 
 # spawn point
 execute if score spawn_ref exp_data matches 1 run tellraw @s [{"text":"- When the game starts, ","color":"white"},{"text":"world spawn","color":"light_purple"},{"text":" will be used as the center of the border","color":"white"}]
 execute if score spawn_ref exp_data matches 2 run tellraw @s [{"text":"- When the game starts, ","color":"white"},{"text":"0,0","color":"light_purple"},{"text":" will be used as the center of the border","color":"white"}]
-execute if score spawn_ref exp_data matches 3 run tellraw @p [{"text":"- When the game starts, ","color":"white"},{"text":"custom player location","color":"light_purple"},{"text":" will be used as the center of the border","color":"white"}]
+execute if score spawn_ref exp_data matches 3 run tellraw @s [{"text":"- When the game starts, ","color":"white"},{"text":"custom player location","color":"light_purple"},{"text":" will be used as the center of the border","color":"white"}]
+execute if score spawn_ref exp_data matches 4 run tellraw @s [{"text":"- When the game starts, ","color":"white"},{"text":"the position of the player who started the game","color":"light_purple"},{"text":" will be used as the center of the border","color":"white"}]
 execute unless score spawn_ref exp_data matches 1..3 run tellraw @s {"text":"- An Issue occurred while showing SPAWN_REF value. Value is either too low or too high, or it doesn't exit.","color":"red"}
 # grace period
 execute if score grace_period exp_data matches 1 run tellraw @s [{"text":"- When the game starts grace period will be ","color":"white"},{"text":"enabled","color":"green","bold":true}]
