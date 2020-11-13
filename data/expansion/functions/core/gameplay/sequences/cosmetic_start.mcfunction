@@ -31,6 +31,7 @@ execute if score cosmetic_start exp_timer matches 2 run playsound block.note_blo
 execute if score cosmetic_start exp_timer matches 2 run title @a title {"text":"Game starting...","color":"blue"}
 execute if score cosmetic_start exp_timer matches 2 run title @a subtitle ["",{"text":"Starting ","color":"aqua"},{"text":"now","color":"light_purple"}]
 execute if score cosmetic_start exp_timer matches 2 run title @a times 0 21 40
+execute if score cosmetic_start exp_timer matches 2 run function expansion:core/gameplay/sequences/logic_start
 execute if score cosmetic_start exp_timer matches 1..11 run scoreboard players remove cosmetic_start exp_timer 1
 execute if score cosmetic_start exp_timer matches 1 run schedule clear expansion:core/gameplay/sequences/cosmetic_start
 execute if score cosmetic_start exp_timer matches 1 run say Script complete

@@ -5,6 +5,7 @@ schedule clear expansion:core/gameplay/craft_detector
 scoreboard objectives add exp_data dummy
 scoreboard objectives add exp_timer dummy
 scoreboard objectives add exp_config_op dummy
+scoreboard objectives add blocks dummy {"text": "Blocks"}
 scoreboard objectives add exp_coredetect minecraft.used:carrot_on_a_stick
 execute unless score difficulty exp_data matches 1..5 run scoreboard players set difficulty exp_data 2
 execute unless score game_state exp_data matches 0.. run scoreboard players set game_state exp_data 0
