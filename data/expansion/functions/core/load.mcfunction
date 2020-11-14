@@ -14,6 +14,6 @@ execute unless score hour exp_timer matches 0.. run scoreboard players set hour 
 execute unless score min exp_timer matches 0.. run scoreboard players set min exp_timer 0
 execute unless score sec exp_timer matches 0.. run scoreboard players set sec exp_timer 0
 execute unless score bar exp_timer matches 0.. run scoreboard players set bar exp_timer 0
-execute unless score spawn_ref exp_data matches 1..4 run scoreboard players set spawn_ref exp_data 4
+execute unless score spawn_ref exp_data matches 1..3 run scoreboard players set spawn_ref exp_data 3
 execute unless score grace_period exp_data matches 0..1 run scoreboard players set grace_period exp_data 1
 schedule function expansion:core/post_load 2s

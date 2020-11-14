@@ -3,15 +3,12 @@ schedule clear expansion:core/gameplay/config_crafter
 schedule clear expansion:core/gameplay/craft_detector
 schedule function expansion:core/gameplay/craft_detector 10t
 # this handles spawnref
+#
 # this part specifically handles worldspawn
-execute if score spawn_ref exp_data matches 1 run gamerule doImmediateRespawn true
-execute if score spawn_ref exp_data matches 1 run gamerule keepInventory true
-execute if score spawn_ref exp_data matches 1 run gamerule showDeathMessages false
-execute if score spawn_ref exp_data matches 1 run kill @a
-execute if score spawn_ref exp_data matches 1 run gamerule doImmediateRespawn false
-execute if score spawn_ref exp_data matches 1 run gamerule keepInventory false
-execute if score spawn_ref exp_data matches 1 run gamerule showDeathMessages true
-execute if score spawn_ref exp_data matches 1 at @a[limit=1,sort=random] run summon area_effect_cloud ~ ~ ~ {Duration:2147483647,Tags:["border_marker"]}
+# originally, this killed all players and then relied on their spawn being at world spawn. One, this is inconsistent
+# if the player had set their spawnpoint elsehwere, but also it flat out didn't work. An easier method was found which
+# was to just let the server make the border_marker entity, which will spawn the entity at world spawn
+execute if score spawn_ref exp_data matches 1 run summon area_effect_cloud ~ ~ ~ {Duration:2147483647,Tags:["border_marker"]}
 # this part specifically handles 0,0
 execute if score spawn_ref exp_data matches 2 run spreadplayers 0 0 0 1 true @a
 # teleports players to bordermarker
@@ -23,6 +20,7 @@ worldborder warning distance 8
 worldborder warning time 3
 worldborder set 64 0
 execute store result score blocks blocks run worldborder get
+kill @e[tag=border_marker,type=area_effect_cloud]
 # bossbar handling
 bossbar add expansion:timer {"text":"placeholder"}
 execute if score difficulty exp_data matches 1..2 run bossbar set expansion max 1800
