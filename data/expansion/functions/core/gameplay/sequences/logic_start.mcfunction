@@ -16,11 +16,11 @@ execute if entity @e[limit=1,type=area_effect_cloud,tag=border_marker] as @e[typ
 # creates the border
 execute as @e[limit=1,tag=border_marker,type=area_effect_cloud] at @s run worldborder center ~ ~
 execute unless entity @e[tag=border_marker,type=area_effect_cloud] run worldborder center 0 0
+execute unless entity @e[tag=border_marker,type=area_effect_cloud] run spreadplayers 0 0 1 1 false @a
 worldborder warning distance 8
 worldborder warning time 3
 worldborder set 64 0
 execute store result score blocks blocks run worldborder get
-kill @e[tag=border_marker,type=area_effect_cloud]
 # bossbar handling
 bossbar add expansion:timer {"text":"placeholder"}
 execute if score difficulty exp_data matches 1..2 run bossbar set expansion max 1800

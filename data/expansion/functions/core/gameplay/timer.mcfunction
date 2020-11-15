@@ -1,11 +1,15 @@
 schedule function expansion:core/gameplay/timer 1s
+# main loop
 scoreboard players remove sec exp_timer 1
 scoreboard players remove bar exp_timer 1
+execute store result score blocks blocks run worldborder get
+# handles time conversion so time doesnt underflow
 execute if score min exp_timer matches 60.. run scoreboard players add hour exp_timer 1
 execute if score min exp_timer matches 60.. run scoreboard players remove min exp_timer 60
 execute if score min exp_timer matches 0 if score sec exp_timer matches -1 if score hour exp_timer matches 1.. run function expansion:core/gameplay/sequences/translate_hour
 execute if score sec exp_timer matches -1 run scoreboard players remove min exp_timer 1
 execute if score sec exp_timer matches -1 run scoreboard players set sec exp_timer 59
+# border shrink warning script
 execute if score hour exp_timer matches 0 if score min exp_timer matches 0 if score sec exp_timer matches 0..10 run playsound block.note_block.bit master @a ~ ~ ~ 1000 0.75
 execute if score hour exp_timer matches 0 if score min exp_timer matches 0 if score sec exp_timer matches 10 run bossbar set expansion:timer color red
 execute if score hour exp_timer matches 0 if score min exp_timer matches 0 if score sec exp_timer matches 10 run bossbar set expansion:timer name [{"text":"Border shrinking in ","color":"red"},{"score":{"name":"hour","objective":"exp_timer"},"color":"aqua"},{"text":"h "},{"score":{"name":"min","objective":"exp_timer"},"color":"aqua"},{"text":"m "},{"score":{"name":"sec","objective":"exp_timer"},"color":"aqua"},{"text":"s"}]
@@ -21,6 +25,7 @@ execute if score hour exp_timer matches 0 if score min exp_timer matches 0 if sc
 execute if score hour exp_timer matches 0 if score min exp_timer matches 0 if score sec exp_timer matches 1 run bossbar set expansion:timer name [{"text":"Border shrinking in ","color":"white"},{"score":{"name":"hour","objective":"exp_timer"},"color":"aqua"},{"text":"h "},{"score":{"name":"min","objective":"exp_timer"},"color":"aqua"},{"text":"m "},{"score":{"name":"sec","objective":"exp_timer"},"color":"aqua"},{"text":"s"}]
 execute if score hour exp_timer matches 0 if score min exp_timer matches 0 if score sec exp_timer matches 0..10 run title @a actionbar [{"text":"Border shrinking in  ","color":"blue"},{"score":{"name":"sec","objective":"exp_timer"},"color":"red","bold":true},{"text":" seconds!","color":"blue","bold":false}]
 execute if score hour exp_timer matches 0 if score min exp_timer matches ..0 if score sec exp_timer matches 0 run function expansion:core/gameplay/shrink
+# script responsible for handling the bossbar shown to players
 execute if score min exp_timer matches 1.. run bossbar set expansion:timer name [{"text":"Border shrinking in ","color":"white"},{"score":{"name":"hour","objective":"exp_timer"},"color":"aqua"},{"text":"h "},{"score":{"name":"min","objective":"exp_timer"},"color":"aqua"},{"text":"m "},{"score":{"name":"sec","objective":"exp_timer"},"color":"aqua"},{"text":"s"}]
 execute if score min exp_timer matches 0 if score sec exp_timer matches 11.. run bossbar set expansion:timer name [{"text":"Border shrinking in ","color":"white"},{"score":{"name":"hour","objective":"exp_timer"},"color":"aqua"},{"text":"h "},{"score":{"name":"min","objective":"exp_timer"},"color":"aqua"},{"text":"m "},{"score":{"name":"sec","objective":"exp_timer"},"color":"aqua"},{"text":"s"}]
 execute store result bossbar expansion:timer value run scoreboard players get bar exp_timer

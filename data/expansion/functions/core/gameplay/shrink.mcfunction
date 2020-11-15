@@ -19,7 +19,6 @@ execute if score difficulty exp_data matches 4..5 run scoreboard players set min
 execute if score difficulty exp_data matches 4..5 run scoreboard players set sec exp_timer 0
 execute if score difficulty exp_data matches 4..5 run scoreboard players set bar exp_timer 1200
 # Executed regardless of difficulty
-execute store result score blocks blocks run worldborder get
 execute if score blocks blocks matches ..4 run function expansion:core/gameplay/sequences/endgame
 execute if score blocks blocks matches 4.. run playsound block.beacon.deactivate master @a ~ ~ ~ 1000 0.75
 execute if score blocks blocks matches 4.. run bossbar set expansion:timer color green
