@@ -38,3 +38,5 @@ execute if score grace_period exp_data matches 1 run bossbar set expansion:timer
 execute if score grace_period exp_data matches 1 run scoreboard players set grace_s exp_timer 0
 execute if score grace_period exp_data matches 1 run function expansion:core/gameplay/grace_timer
 execute if score grace_period exp_data matches 0 run function expansion:core/gameplay/timer
+# sets gamestate to active
+scoreboard players set game_state exp_data 2
