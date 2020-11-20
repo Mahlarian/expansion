@@ -1,5 +1,6 @@
 schedule function expansion:core/gameplay/timer 1s
 # main loop
+execute if score blocks blocks matches ..14 run function expansion:core/gameplay/sequences/endgame
 scoreboard players remove sec exp_timer 1
 scoreboard players remove bar exp_timer 1
 execute store result score blocks blocks run worldborder get
@@ -29,3 +30,4 @@ execute if score hour exp_timer matches 0 if score min exp_timer matches ..0 if 
 execute if score min exp_timer matches 1.. run bossbar set expansion:timer name [{"text":"Border shrinking in ","color":"white"},{"score":{"name":"hour","objective":"exp_timer"},"color":"aqua"},{"text":"h "},{"score":{"name":"min","objective":"exp_timer"},"color":"aqua"},{"text":"m "},{"score":{"name":"sec","objective":"exp_timer"},"color":"aqua"},{"text":"s"}]
 execute if score min exp_timer matches 0 if score sec exp_timer matches 11.. run bossbar set expansion:timer name [{"text":"Border shrinking in ","color":"white"},{"score":{"name":"hour","objective":"exp_timer"},"color":"aqua"},{"text":"h "},{"score":{"name":"min","objective":"exp_timer"},"color":"aqua"},{"text":"m "},{"score":{"name":"sec","objective":"exp_timer"},"color":"aqua"},{"text":"s"}]
 execute store result bossbar expansion:timer value run scoreboard players get bar exp_timer
+bossbar set expansion:timer players @a

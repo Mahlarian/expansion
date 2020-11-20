@@ -10,11 +10,15 @@ execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches
 execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 run scoreboard players set hour exp_timer 0
 execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 if score difficulty exp_data matches 1..2 run scoreboard players set min exp_timer 30
 execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 if score difficulty exp_data matches 1..2 run scoreboard players set sec exp_timer 0
+execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 if score difficulty exp_data matches 1..2 run bossbar set expansion:timer max 1880
 execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 if score difficulty exp_data matches 3 run scoreboard players set min exp_timer 24
-execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 if score difficulty exp_data matches 3 run scoreboard players set min exp_timer 0
+execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 if score difficulty exp_data matches 3 run scoreboard players set sec exp_timer 0
+execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 if score difficulty exp_data matches 3 run bossbar set expansion:timer max 1440
 execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 if score difficulty exp_data matches 4..5 run scoreboard players set min exp_timer 20
-execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 if score difficulty exp_data matches 4..5 run scoreboard players set min exp_timer 0
+execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 if score difficulty exp_data matches 4..5 run scoreboard players set sec exp_timer 0
+execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 if score difficulty exp_data matches 1..2 run bossbar set expansion:timer max 1200
 execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 run playsound block.note_block.pling master @a ~ ~ ~ 1000 1
+execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 run bossbar set expansion:timer players 
 execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 run schedule clear expansion:core/gameplay/grace_timer
 execute if score grace_s exp_timer matches -1 if score grace_m exp_timer matches 0 run function expansion:core/gameplay/timer
 # takes off 1 minute when 60 seconds passes
