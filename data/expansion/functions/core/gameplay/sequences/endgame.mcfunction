@@ -75,7 +75,7 @@ execute if score endgame exp_timer matches 332 run particle flame ~ ~ ~ 0 10 0 1
 execute if score endgame exp_timer matches 332 run particle explosion ~ ~ ~ 0 0.3 0 10 100 normal
 execute if score endgame exp_timer matches 332 run worldborder set 1000 10
 execute if score endgame exp_timer matches 532 run worldborder set 29999984 0
-execute if score endgame exp_timer matches 532 run scoreboard players set game_state exp_data 2
+execute if score endgame exp_timer matches 532 run scoreboard players set game_state exp_data 0
 
 execute if score endgame exp_timer matches 533 run schedule clear expansion:core/gameplay/sequences/endgame
 execute if score endgame exp_timer matches 533 run scoreboard players reset endgame exp_timer
