@@ -1,3 +1,0 @@
-execute if entity @a[scores={exp_coredetect=1..},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{CustomModelData:1}}}] run function expansion:core/core_outputs/iron_core
-execute as @a[scores={exp_coredetect=1..},nbt={SelectedItem:{id:"minecraft:carrot_on_a_stick",Count:1b,tag:{CustomModelData:8}}}] run function expansion:core/gameplay/tester_items/hunger_controller
-scoreboard players reset @a[scores={exp_coredetect=1..}] exp_coredetect

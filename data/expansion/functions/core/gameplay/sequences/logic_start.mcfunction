@@ -1,7 +1,7 @@
 # this handles scheduling the loops
-schedule clear expansion:core/gameplay/config_crafter
 schedule clear expansion:core/gameplay/craft_detector
 schedule function expansion:core/gameplay/craft_detector 10t
+schedule function expansion:core/gameplay/items/score_checker 1t
 # this handles spawnref
 #
 # this part specifically handles worldspawn
@@ -17,6 +17,7 @@ execute if entity @e[limit=1,type=area_effect_cloud,tag=border_marker] as @e[typ
 execute as @e[limit=1,tag=border_marker,type=area_effect_cloud] at @s run worldborder center ~ ~
 execute unless entity @e[tag=border_marker,type=area_effect_cloud] run worldborder center 0 0
 execute unless entity @e[tag=border_marker,type=area_effect_cloud] run spreadplayers 0 0 1 1 false @a
+execute as @a run spawnpoint @a ~ ~ ~
 worldborder warning distance 8
 worldborder warning time 3
 worldborder set 64 0
