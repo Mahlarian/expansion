@@ -8,4 +8,5 @@ worldborder center 0 0
 worldborder set 29999984
 tellraw @a [{"text":"[Expansion] ","color":"aqua"},{"text":"Removed successful. To fully uninstall, remove the datapack folder from your world folder. To re-enable Expansion, run ","color":"white"},{"text":"/datapack enable \"file/expansion\"","color":"light_purple"}]
 datapack disable "file/expansion"
+datapack disable "file/expansion.zip"
 reload

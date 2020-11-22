@@ -3,6 +3,8 @@ scoreboard players add endgame exp_timer 1
 
 execute if score endgame exp_timer matches 1 run schedule clear expansion:core/gameplay/timer
 execute if score endgame exp_timer matches 1 run schedule clear expansion:core/gameplay/craft_detector
+execute if score endgame exp_timer matches 1 run schedule clear expansion:core/gameplay/items/score_checker
+execute if score endgame exp_timer matches 1 run bossbar set expansion:timer players
 execute if score endgame exp_timer matches 1 run playsound entity.generic.explode master @a ~ ~ ~ 1000 1
 execute if score endgame exp_timer matches 1 run particle explosion ~ ~ ~ 10 10 10 0.2 100
 execute if score endgame exp_timer matches 60 run playsound entity.generic.explode master @a ~ ~ ~ 1000 1

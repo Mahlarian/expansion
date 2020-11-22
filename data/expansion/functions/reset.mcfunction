@@ -10,3 +10,5 @@ worldborder set 29999984 0
 schedule clear expansion:core/gameplay/grace_timer
 schedule clear expansion:core/gameplay/timer
 schedule clear expansion:core/gameplay/craft_detector
+schedule clear expansion:core/gameplay/items/score_checker
+bossbar set expansion:timer players
