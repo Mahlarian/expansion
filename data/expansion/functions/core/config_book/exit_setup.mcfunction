@@ -11,4 +11,6 @@ execute as @e[tag=config_survival] run gamemode survival @s
 execute as @e[tag=config_creative] run gamemode creative @s
 execute as @e[tag=config_survival] run tag @s remove config_survival
 execute as @e[tag=config_creative] run tag @s remove config_creative
+execute if score vanilla_diff exp_data matches 0 run difficulty peaceful
+scoreboard players reset vanilla_diff exp_data
 kill @e[type=item,nbt={Item:{id:"minecraft:barrier",Count:1b,tag:{display:{Name:'{"text":"Exit Config","color":"red","bold":true}',Lore:['{"text":"Dropping this item will exit the config menu","color":"white","bold":false,"italic":true}','{"text":"and return the config book back to you","color":"white","bold":false,"italic":true}']}}}}]

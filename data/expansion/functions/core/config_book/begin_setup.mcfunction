@@ -1,6 +1,8 @@
 # Game states = 0: not started 1: config mode 2: started 3: game over
 scoreboard players set @s exp_config_op 1
 scoreboard players set game_state exp_data 1
+execute store result score vanilla_diff exp_data run difficulty
+execute if score vanilla_diff exp_data matches 0 run difficulty easy
 tag @s[gamemode=survival] add config_survival
 tag @s[gamemode=creative] add config_creative
 execute at @s run summon slime ~ ~ ~ {Silent:1b,Invulnerable:1b,NoAI:1b,Size:1,Tags:["interact_lock"],ActiveEffects:[{Id:14b,Amplifier:0b,Duration:1999980,ShowParticles:0b}]}
